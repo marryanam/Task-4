@@ -1,0 +1,26 @@
+<header>
+    <li class="slot-2">name</li>
+    <li class="slot-2">team</li>
+    <li class="slot-2">GP</li>
+    <li class="slot-2">MIN</li>
+    <li class="slot-2">PTS</li>
+    <li class="slot-2">FG</li>
+</header>
+<div class="list">
+    <ng-container *ngFor="let playersStat of playersStats;" >
+        <ol (click)="getInfo(playersStat)" *ngIf="playersStat?.id">
+            <li class="slot-1">{{playersStat.player}}</li>
+            <li class="slot-1">{{playersStat.team}}</li>
+            <li class="slot-1">{{playersStat.gp}}</li>
+            <li class="slot-1">{{playersStat.min}}</li>
+            <li class="slot-1">{{playersStat.pts}}</li>
+            <li class="slot-1">{{playersStat.fg}}</li>
+        </ol>
+    </ng-container>
+</div>
+
+<h2 *ngIf="this.playersStats.length === 0">Choose players</h2>
+
+<app-pr-player-info
+    [player]="currentPlayerId"
+></app-pr-player-info>

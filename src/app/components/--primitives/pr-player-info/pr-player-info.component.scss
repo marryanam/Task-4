@@ -1,0 +1,55 @@
+:host {
+    $radius: 20px;
+    $color-primary:  rgba(255, 255, 255, 0.99);
+    $color-secondary:  rgba(255, 255, 255, 0.43);
+    $border-color: rgba(255, 255, 255, 0.14);
+
+    display: block;
+    padding: calc(var(--baseline) + var(--subline));
+    position: absolute;
+    left: 0;
+    bottom: calc(var(--side-margin) / 2);
+    border-radius: $radius;
+    background: var(--color-A0);
+    transition: opacity .4s ease-in-out;
+    width: calc(100% - (var(--side-margin) * 2 + var(--subline)));
+    opacity: 0;
+    pointer-events: none;
+
+    > * {
+        user-select: none;
+        pointer-events: none;
+        color: $color-primary;
+    }
+
+    > .wrap{
+        display: flex;
+        > h2{
+            min-width: var(--column3);
+            padding-top: calc(var(--subline) * 2);
+        }
+
+        > .info{
+            width: calc(100% - var(--column3));
+            padding-top: calc(var(--baseline) / 2);
+            columns: 2;
+            column-gap: var(--baseline);
+            -webkit-columns: 2;
+            -moz-columns: 2;
+    
+            > li{
+                border-bottom: 1px solid $border-color;
+                padding: var(--subline);
+                display: flex;
+                p{
+                    min-width: var(--column1);
+                    color: $color-secondary;
+                }
+            }
+        }
+    }
+    &.selected{
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
